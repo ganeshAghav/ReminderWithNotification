@@ -26,7 +26,6 @@
             android:label="BroadcastReceiverAux">
             <intent-filter>
                 <action android:name="ALARM" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>

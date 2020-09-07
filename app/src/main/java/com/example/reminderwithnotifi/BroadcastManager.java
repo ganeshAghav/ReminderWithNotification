@@ -28,8 +28,6 @@ public class BroadcastManager  extends BroadcastReceiver {
             String yourDate = comman.getUserDate();
             String yourHour = comman.getUserTime();
 
-
-            Date d = new Date();
             String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
             String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
 

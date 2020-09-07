@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void CallBroadcastReciver(){
 
-        boolean alarm = (PendingIntent.getBroadcast(this, 0, new Intent("ALARM"), PendingIntent.FLAG_NO_CREATE) == null);
+       /* boolean alarm = (PendingIntent.getBroadcast(this, 0, new Intent("ALARM"), PendingIntent.FLAG_NO_CREATE) == null);
 
         if(alarm){
             Intent itAlarm = new Intent("ALARM");
@@ -108,8 +108,32 @@ public class MainActivity extends AppCompatActivity {
             calendar.setTimeInMillis(System.currentTimeMillis());
             calendar.add(Calendar.SECOND, 3);
             AlarmManager alarme = (AlarmManager) getSystemService(ALARM_SERVICE);
-            alarme.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),60000, pendingIntent);
+            alarme.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),10000, pendingIntent);
         }
+        else
+        {
+            Intent itAlarm = new Intent(MainActivity.this,BroadcastManager.class);
+            itAlarm.setAction("ALARM");
+            itAlarm.addCategory(Intent.CATEGORY_DEFAULT);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,itAlarm,0);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.add(Calendar.SECOND, 3);
+            AlarmManager alarme = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarme.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),60000, pendingIntent);
+            sendBroadcast(itAlarm);
+        }*/
+
+        Intent itAlarm = new Intent("ALARM");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,itAlarm,0);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.SECOND, 3);
+        AlarmManager alarme = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarme.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),10000, pendingIntent);
+
+
+
     }
 
 }
